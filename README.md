@@ -1,4 +1,4 @@
-# pronoia-coach-api
+# dashboard-api
 
 ## Requirements
 
