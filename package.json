@@ -50,12 +50,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/walkie-talkie-dev/eppeCoachApi.git"
+    "url": "git+https://github.com/tomobre/dashboard-api.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/walkie-talkie-dev/eppeCoachApi/issues"
+    "url": "https://github.com/tomobre/dashboard-api/issues"
   },
-  "homepage": "https://github.com/walkie-talkie-dev/eppeCoachApi"
+  "homepage": "https://github.com/tomobre/dashboard-api"
 }
