@@ -2,11 +2,31 @@
   "name": "dashboard-api",
   "version": "1.0.0",
   "description": "API for dashboard",
+  "homepage": "https://github.com/tomobre/dashboard-api",
+  "bugs": {
+    "url": "https://github.com/tomobre/dashboard-api/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomobre/dashboard-api.git"
+  },
+  "license": "ISC",
+  "author": "",
   "main": "index.ts",
-  "engines": {
-    "node": "14.16.1"
+  "scripts": {
+    "add-env": "echo \"VERSION=`date +%Y%m%d-%H:%M:%S`-${GITHUB_SHA}\" >> ./dist/.env",
+    "build": "tsc -p .",
+    "copy-files": "cp package.json ./dist/ && sed 's,\\.ts,\\.js,g' ormconfig.js >> ./dist/ormconfig.js && cp -r .elasticbeanstalk/ ./dist/ && sed 's,.env,,g' .ebignore >> ./dist/.ebignore && cp .npmrc ./dist/ && npm run add-env",
+    "copy-files:prod": "cp package.json ./dist/ && sed 's,\\.ts,\\.js,g' ormconfig.js >> ./dist/ormconfig.js && mkdir ./dist/.elasticbeanstalk/ && sed 's,us-east-1,us-west-2,g' .elasticbeanstalk/config.yml >> ./dist/.elasticbeanstalk/config.yml && sed 's,.env,,g' .ebignore >> ./dist/.ebignore && cp .npmrc ./dist/  && npm run add-env",
+    "db:diagram": "ts-node ./node_modules/.bin/typeorm-uml ormconfig.js",
+    "migrations": "npm run typeorm migration:run",
+    "start": "npm run migrations && ts-node ./index.ts",
+    "start:dev": "npm run migrations && ts-node-dev ./index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
+    "@types/node-fetch": "^2.6.4",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
@@ -18,10 +38,11 @@
     "joi": "^17.4.2",
     "morgan": "^1.10.0",
     "multer": "^1.4.3",
+    "node-fetch": "2.6.1",
     "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
     "stripe": "^8.222.0",
-    "ts-node": "^10.2.1",
+    "ts-node": "^10.9.1",
     "typeorm": "^0.2.37",
     "typescript": "^4.4.3",
     "uuid-v4": "^0.1.0",
@@ -33,29 +54,10 @@
     "@types/draft-js": "^0.11.7",
     "@types/express": "^4.17.13",
     "@types/node": "^16.10.2",
-    "ts-node-dev": "^1.1.8",
+    "ts-node-dev": "^2.0.0",
     "typeorm-uml": "^1.6.4"
   },
-  "scripts": {
-    "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
-    "start:dev": "npm run migrations && ts-node-dev ./index.ts",
-    "migrations": "npm run typeorm migration:run",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc -p .",
-    "start": "npm run migrations && ts-node ./index.ts",
-    "copy-files:prod": "cp package.json ./dist/ && sed 's,\\.ts,\\.js,g' ormconfig.js >> ./dist/ormconfig.js && mkdir ./dist/.elasticbeanstalk/ && sed 's,us-east-1,us-west-2,g' .elasticbeanstalk/config.yml >> ./dist/.elasticbeanstalk/config.yml && sed 's,.env,,g' .ebignore >> ./dist/.ebignore && cp .npmrc ./dist/  && npm run add-env",
-    "copy-files": "cp package.json ./dist/ && sed 's,\\.ts,\\.js,g' ormconfig.js >> ./dist/ormconfig.js && cp -r .elasticbeanstalk/ ./dist/ && sed 's,.env,,g' .ebignore >> ./dist/.ebignore && cp .npmrc ./dist/ && npm run add-env",
-    "add-env": "echo \"VERSION=`date +%Y%m%d-%H:%M:%S`-${GITHUB_SHA}\" >> ./dist/.env",
-    "db:diagram": "ts-node ./node_modules/.bin/typeorm-uml ormconfig.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tomobre/dashboard-api.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tomobre/dashboard-api/issues"
-  },
-  "homepage": "https://github.com/tomobre/dashboard-api"
+  "engines": {
+    "node": "14.16.1"
+  }
 }

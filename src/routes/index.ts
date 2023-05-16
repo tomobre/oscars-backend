@@ -4,14 +4,13 @@ const router = express.Router();
 const config = require("../config/config");
 
 // Import routes
-const reviewsRoute = require("./reviews.route");
-
+const priceRoute = require("./price.route");
 
 // Create routing
 const defaultRoutes = [
   {
-    path: "/reviews",
-    route: reviewsRoute,
+    path: "/price",
+    route: priceRoute,
   },
 ];
 
