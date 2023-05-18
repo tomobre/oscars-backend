@@ -8,13 +8,13 @@ import priceUpdate from "./price";
 import IPsUpdate from "./ip";
 
 async function updateAll() {
-  /* await priceUpdate();
+  await priceUpdate();
   await circulatingSupplyUpdate();
   await blockchainSizeUpdate();
   await SNCountUpdate();
   await lockedSupplyPercentUpdate();
   await operatorAddressUpdate();
-  await versionNumberUpdate(); */
+  await versionNumberUpdate();
   await IPsUpdate();
 }
 
