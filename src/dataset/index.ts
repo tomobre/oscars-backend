@@ -5,21 +5,22 @@ import operatorAddressUpdate from "./operatorAddress";
 import versionNumberUpdate from "./versionNumber";
 import SNCountUpdate from "./SNCount";
 import priceUpdate from "./price";
+import IPsUpdate from "./ip";
 
-function updateAll() {
-  priceUpdate();
-  circulatingSupplyUpdate();
-  blockchainSizeUpdate();
-  SNCountUpdate();
-  lockedSupplyPercentUpdate();
-  operatorAddressUpdate();
-  versionNumberUpdate();
+async function updateAll() {
+  /* await priceUpdate();
+  await circulatingSupplyUpdate();
+  await blockchainSizeUpdate();
+  await SNCountUpdate();
+  await lockedSupplyPercentUpdate();
+  await operatorAddressUpdate();
+  await versionNumberUpdate(); */
+  await IPsUpdate();
 }
 
 export default async function updateDB(time: number) {
-  //updateAll()
-  //versionNumberUpdate();
-  setInterval(() => {
-    updateAll();
+  await updateAll();
+  setInterval(async () => {
+    await updateAll();
   }, time);
 }

@@ -20,7 +20,7 @@ export default async function versionNumberUpdate() {
 
       if (!versionNumberInDB) {
         const versionNumber = new VersionNumber();
-        versionNumber.name = SNByVersionNumber[0][index];
+        versionNumber.name = versionNumberName;
         versionNumber.count = SNByVersionNumber[1][index];
         await versionNumber.save().catch((error) => {
           throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, error.message);

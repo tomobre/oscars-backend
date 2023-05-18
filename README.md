@@ -63,3 +63,8 @@ This means you haven't enable authentication in your firebase account.
 When we want to start adding functioanlity lets visit
 https://github.com/hagopj13/node-express-boilerplate
 first
+
+## TODO
+
+- if an ip goes from having one service node to cero, it should be removed from the database, otherwise in the code the api call simply wont compare it ever again and the ip will remain in the database with 1 service node forever.
+- Same thing applies with operator address

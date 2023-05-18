@@ -2,17 +2,21 @@ export {};
 /** Node Modules */
 const httpStatus = require("http-status");
 const catchAsync = require("../utils/catchAsync");
-import { DATE } from "../constants";
-import { MoreThan } from "typeorm";
 /** Schemas */
-import { Price } from "../models/Price";
+import { Country } from "../models/Country";
+import { ASN } from "../models/ASN";
+import { IP } from "../models/IP";
 
 const getAll = catchAsync(async (req: any, res: any) => {
-  const result = await Price.find({
-    where: {
-      date: MoreThan(DATE),
-    },
-  });
+  const countries = await Country.find({ relations: ["ips"] });
+  const ASNs = await ASN.find({ relations: ["ips"] });
+  const IPs = await IP.find({ relations: ["country", "ASN"] });
+
+  const result = {
+    countries,
+    ASNs,
+    IPs,
+  };
   res.status(httpStatus.OK).json(result);
 });
 

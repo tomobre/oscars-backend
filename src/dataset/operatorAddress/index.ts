@@ -23,7 +23,7 @@ export default async function operatorAddressUpdate() {
 
       if (!OAinDB) {
         const operatorAddress = new OperatorAddress();
-        operatorAddress.name = SNByOpAddress[0][index];
+        operatorAddress.name = operatorName;
         operatorAddress.count = SNByOpAddress[1][index];
         await operatorAddress.save().catch((error) => {
           throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, error.message);

@@ -23,6 +23,9 @@ const envVarsSchema = Joi.object()
     DB_USERNAME: Joi.string().required().description("DB Username"),
     DB_PASSWORD: Joi.string().required().description("DB Password"),
     DB_DATABASE: Joi.string().required().description("DB Database"),
+    MAXMIND_LICENSE_KEY: Joi.string()
+      .required()
+      .description("Geolocation API key"),
   })
   .unknown();
 
@@ -55,6 +58,7 @@ const settings = {
     password: envVars.DB_PASSWORD,
     database: envVars.DB_DATABASE,
   },
+  maxmind_license_key: envVars.MAXMIND_LICENSE_KEY,
 };
 
 module.exports = settings;
