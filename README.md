@@ -4,15 +4,13 @@
 
 ### DB
 
-### Firebase Account
-
-### Etc
-
-## Let's get our hands dirty
-
 ### App Packages
 
-First you need to install/update the packages. To do so, run:
+First you need to install/update the packages.
+
+Before running this command, make sure to copy the env.example file and have the license key env variable for the geolocation.
+
+After that you can install the packages. To do so, run:
 
 ```bash
 npm install
@@ -27,7 +25,7 @@ Now you need to duplicate the file called `.env.example` and name it `.env`. Thi
 To start the app just run:
 
 ```bash
-npm run dev
+npm run start:dev
 ```
 
 ## Addming Models
@@ -56,13 +54,9 @@ To run migrations excecute
 
 ### Backend: Error (auth/configuration-not-found)
 
-This means you haven't enable authentication in your firebase account.
+## Constants
 
-## Notes
-
-When we want to start adding functioanlity lets visit
-https://github.com/hagopj13/node-express-boilerplate
-first
+In the src/constants folder you can find all the constants to change the data, to get only the data from a certain date, to roundup certain numbers in a different way, to slice the amount of given data, or to change the frequency in which the data is stored.
 
 ## TODO
 
