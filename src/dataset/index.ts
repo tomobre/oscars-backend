@@ -19,7 +19,7 @@ async function updateAll() {
 }
 
 export default async function updateDB(time: number) {
-  await updateAll();
+  // await updateAll();
   setInterval(async () => {
     await updateAll();
   }, time);

@@ -6,6 +6,7 @@ const config = require("../config/config");
 // Import routes
 const slide1Route = require("./slide1.route");
 const slide2Route = require("./slide2.route");
+const slide3Route = require("./slide3.route");
 
 // Create routing
 const defaultRoutes = [
@@ -16,6 +17,10 @@ const defaultRoutes = [
   {
     path: "/2",
     route: slide2Route,
+  },
+  {
+    path: "/3",
+    route: slide3Route,
   },
 ];
 
