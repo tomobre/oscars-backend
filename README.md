@@ -2,6 +2,14 @@
 
 ## Requirements
 
+Before doing anything, make sure you have nvm installed and run the following command in the root of the project directory:
+
+```bash
+nvm use
+```
+
+This will make sure you are using the right node version
+
 ### DB
 
 ### App Packages
@@ -13,7 +21,7 @@ Before running this command, make sure to copy the env.example file and have the
 After that you can install the packages. To do so, run:
 
 ```bash
-npm install
+yarn install
 ```
 
 ### App Settings
@@ -25,7 +33,7 @@ Now you need to duplicate the file called `.env.example` and name it `.env`. Thi
 To start the app just run:
 
 ```bash
-npm run start:dev
+yarn run start:dev
 ```
 
 ## Addming Models
@@ -39,7 +47,7 @@ Follow TypeOrm decoartos
 Run the following command, where `<<Model>>` is the name of the models you have changed or created.
 
 ```bash
-    npm run typeorm migration:generate -- -n <<Model>>
+    yarn run typeorm migration:generate -- -n <<Model>>
 ```
 
 ### Run Migrations
@@ -47,7 +55,7 @@ Run the following command, where `<<Model>>` is the name of the models you have 
 To run migrations excecute
 
 ```bash
-    npm run migrations
+    yarn run migrations
 ```
 
 ## Troubelshooting
