@@ -2,12 +2,13 @@ import { fetchServiceNodes } from "../services";
 import { SNCount } from "../../models/SNCount";
 const ApiError = require("../../utils/ApiError");
 const httpStatus = require("http-status");
+import { Node } from "../../types/nodes";
 
 export default async function SNCountUpdate() {
   try {
     const nodes = await fetchServiceNodes();
     const serviceNodeActive = nodes.result.service_node_states.filter(
-      (node: any) => node.active
+      (node: Node) => node.active
     );
     const newSNCount = new SNCount();
     newSNCount.number = serviceNodeActive.length.toString();

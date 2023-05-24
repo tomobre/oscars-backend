@@ -11,6 +11,7 @@ const httpStatus = require("http-status");
 import "reflect-metadata";
 const { errorConverter, errorHandler } = require("./middlewares/error");
 const config = require("./config/config");
+import { Request, Response, NextFunction } from "express";
 
 const app = express();
 app.use(morgan.successHandler);
@@ -42,7 +43,7 @@ app.use(cookieParser());
 app.use("/", routes);
 
 // catch 404 and forward to error handler
-app.use(function (req: any, res: any, next: any) {
+app.use(function (req: Request, res: Response, next: NextFunction) {
   next(new ApiError(httpStatus.NOT_FOUND, "Not found"));
 });
 

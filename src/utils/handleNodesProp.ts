@@ -1,11 +1,13 @@
+import { Node } from "../types/nodes";
+
 export function handleNodesProp(
-  nodes: Object[],
+  nodes: Node[],
   property: string
 ): [string[], number[]] {
-  const repeatedVersionsList = nodes.map((obj: any) => {
+  const repeatedVersionsList = nodes.map((obj: Node) => {
     return property === "service_node_version"
       ? JSON.stringify(obj[property])
-      : obj[property];
+      : (obj as any)[property];
   });
   const counts: object = repeatedVersionsList.reduce((map, val) => {
     const prop =

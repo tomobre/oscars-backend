@@ -7,6 +7,7 @@ const config = require("../config/config");
 const slide1Route = require("./slide1.route");
 const slide2Route = require("./slide2.route");
 const slide3Route = require("./slide3.route");
+import { Request, Response } from "express";
 
 // Create routing
 const defaultRoutes = [
@@ -24,7 +25,7 @@ const defaultRoutes = [
   },
 ];
 
-const devRoutes: any[] = [
+/* const devRoutes: any[] = [
   // routes available only in development mode
   // {
   //     path: '/docs',
@@ -36,15 +37,14 @@ defaultRoutes.forEach((route) => {
   router.use(route.path, route.route);
 });
 
-/* istanbul ignore next */
 if (config.env === "development") {
   devRoutes.forEach((route) => {
     router.use(route.path, route.route);
   });
-}
+} */
 
 if (config.version) {
-  router.get("/version", function (req: any, res: any) {
+  router.get("/version", function (req: Request, res: Response) {
     res.status(200).json({ version: config.version });
   });
 }

@@ -6,8 +6,10 @@ const catchAsync = require("../utils/catchAsync");
 import { VersionNumber } from "../models/VersionNumber";
 import { IP } from "../models/IP";
 import { SLICEMAIN } from "../constants";
+/** Types */
+import { Request, Response } from "express";
 
-const getAll = catchAsync(async (req: any, res: any) => {
+const getAll = catchAsync(async (req: Request, res: Response) => {
   const IPsAll = await IP.find({
     relations: ["country", "ASN"],
     order: {

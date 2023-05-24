@@ -3,6 +3,7 @@ import { LockedSupplyPercent } from "../../models/LockedSupplyPercent";
 const ApiError = require("../../utils/ApiError");
 const httpStatus = require("http-status");
 import { ROUNDUPNUMBER } from "../../constants";
+import { Node } from "../../types/nodes";
 
 export default async function lockedSupplyPercentUpdate() {
   try {
@@ -10,7 +11,7 @@ export default async function lockedSupplyPercentUpdate() {
     const nodes = await fetchServiceNodes();
     const circulatingSupply = marketData.market_data.circulating_supply;
     const serviceNodeActive = nodes.result.service_node_states.filter(
-      (node: any) => node.active
+      (node: Node) => node.active
     );
     const totalContributedCount =
       serviceNodeActive.reduce((accumulator: any, object: any) => {
