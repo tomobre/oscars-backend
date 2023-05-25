@@ -6,29 +6,25 @@ import versionNumberUpdate from "./versionNumber";
 import SNCountUpdate from "./SNCount";
 import priceUpdate from "./price";
 import IPsUpdate from "./ip";
-import { NextFunction } from "express";
 
 async function updateAll() {
-  /* await priceUpdate();
-  await circulatingSupplyUpdate(); */
-  await IPsUpdate();
-  /*  
+  await priceUpdate();
+  await circulatingSupplyUpdate();
   await lockedSupplyPercentUpdate();
   await SNCountUpdate();
   await blockchainSizeUpdate();
-
   await operatorAddressUpdate();
   await versionNumberUpdate();
-  */
+  await IPsUpdate();
 }
 
 export default async function updateDB(time: number) {
-  try {
+  /*   try {
     await updateAll();
   } catch (err) {
     console.log(err);
   }
-
+ */
   setInterval(async () => {
     await updateAll();
   }, time);
