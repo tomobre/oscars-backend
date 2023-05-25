@@ -25,23 +25,23 @@ const defaultRoutes = [
   },
 ];
 
-/* const devRoutes: any[] = [
+/*  const devRoutes: any[] = [
   // routes available only in development mode
   // {
   //     path: '/docs',
   //     route: docsRoute,
   // },
 ];
-
+ */
 defaultRoutes.forEach((route) => {
   router.use(route.path, route.route);
 });
 
-if (config.env === "development") {
+/* if (config.env === "development") {
   devRoutes.forEach((route) => {
     router.use(route.path, route.route);
   });
-} */
+}  */
 
 if (config.version) {
   router.get("/version", function (req: Request, res: Response) {

@@ -15,6 +15,7 @@ export async function fetchServiceNodes() {
     data = await response.json();
   } catch (err) {
     console.log(err);
+    return false;
   }
   return data;
 }
@@ -32,7 +33,7 @@ export async function fetchBlockchainSize() {
 
     data = await response.json();
   } catch (err) {
-    console.log(err);
+    throw err;
   }
   return data;
 }
