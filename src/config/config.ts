@@ -26,6 +26,7 @@ const envVarsSchema = Joi.object()
     MAXMIND_LICENSE_KEY: Joi.string()
       .required()
       .description("Geolocation API key"),
+    API_KEY: Joi.string().required().description("our own dashboard API key"),
   })
   .unknown();
 
@@ -59,6 +60,7 @@ const settings = {
     database: envVars.DB_DATABASE,
   },
   maxmind_license_key: envVars.MAXMIND_LICENSE_KEY,
+  apiKey: envVars.API_KEY,
 };
 
 module.exports = settings;
