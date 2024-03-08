@@ -5,6 +5,6 @@ const router = express.Router();
 //const auth = require("../middlewares/auth");
 
 // router.get("/:id", reviewsController.get);
-router.get("/", slide1Controller.getAll);
+router.post("/", slide1Controller.post);
 
 module.exports = router;

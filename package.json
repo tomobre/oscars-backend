@@ -1,7 +1,7 @@
 {
-  "name": "dashboard-api",
+  "name": "oscars-api",
   "version": "1.0.0",
-  "description": "API for dashboard",
+  "description": "oscars api",
   "homepage": "https://github.com/tomobre/dashboard-api",
   "bugs": {
     "url": "https://github.com/tomobre/dashboard-api/issues"
@@ -19,10 +19,9 @@
     "copy-files": "cp package.json ./dist/ && sed 's,\\.ts,\\.js,g' ormconfig.js >> ./dist/ormconfig.js && cp -r .elasticbeanstalk/ ./dist/ && sed 's,.env,,g' .ebignore >> ./dist/.ebignore && cp .npmrc ./dist/ && npm run add-env",
     "copy-files:prod": "cp package.json ./dist/ && sed 's,\\.ts,\\.js,g' ormconfig.js >> ./dist/ormconfig.js && mkdir ./dist/.elasticbeanstalk/ && sed 's,us-east-1,us-west-2,g' .elasticbeanstalk/config.yml >> ./dist/.elasticbeanstalk/config.yml && sed 's,.env,,g' .ebignore >> ./dist/.ebignore && cp .npmrc ./dist/  && npm run add-env",
     "db:diagram": "ts-node ./node_modules/.bin/typeorm-uml ormconfig.js",
-    "postinstall": "node src/utils/updateGeoDB.ts",
     "migrations": "npm run typeorm migration:run",
-    "start": "npm run migrations && ts-node ./index.ts",
-    "start:dev": "npm run migrations && ts-node-dev ./index.ts",
+    "start": "npm run",
+    "start:dev": "ts-node-dev ./index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js"
   },
@@ -40,6 +39,7 @@
     "joi": "^17.4.2",
     "morgan": "^1.10.0",
     "multer": "^1.4.3",
+    "mysql2": "^3.9.2",
     "node-fetch": "2.6.1",
     "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",

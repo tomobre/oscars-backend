@@ -5,12 +5,8 @@
  */
 
 import app from "./src/app";
-import { intializeDB } from "./src/config/db";
 const config = require("./src/config/config");
 const logger = require("./src/config/logger");
-import { TIME } from "./src/constants";
-import updateDB from "./src/dataset";
-const time = TIME * 3600000;
 
 /**
  * Handle clusters configuration
@@ -20,12 +16,6 @@ var count = 1;
 if (config.env === "production") {
   count = require("os").cpus().length;
 }
-
-/**
- * Services Initialization
- */
-intializeDB();
-updateDB(time);
 
 let server = app.listen(process.env.PORT || 3000);
 server.on("error", onError);

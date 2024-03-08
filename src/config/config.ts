@@ -11,22 +11,14 @@ const envVarsSchema = Joi.object()
       .required(),
     VERSION: Joi.string().default("NON_GIVEN").description("API Version"),
     PORT: Joi.number().default(3000),
-    DB_TYPE: Joi.string()
-      .valid("sqlite", "sqlite3", "postgres")
-      .required()
-      .description("DB Type"),
+
     DB_HOST: Joi.string()
       .default("./database.sqlite")
       .required()
       .description("DB Host"),
-    DB_PORT: Joi.string().required().description("DB Port"),
-    DB_USERNAME: Joi.string().required().description("DB Username"),
+    DB_USER: Joi.string().required().description("DB Port"),
+    DB_DB: Joi.string().required().description("DB Username"),
     DB_PASSWORD: Joi.string().required().description("DB Password"),
-    DB_DATABASE: Joi.string().required().description("DB Database"),
-    MAXMIND_LICENSE_KEY: Joi.string()
-      .required()
-      .description("Geolocation API key"),
-    API_KEY: Joi.string().required().description("our own dashboard API key"),
   })
   .unknown();
 
