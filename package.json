@@ -18,7 +18,7 @@
     "build": "tsc -p .",
     "db:diagram": "ts-node ./node_modules/.bin/typeorm-uml ormconfig.js",
     "migrations": "npm run typeorm migration:run",
-    "start": "npm run start:dev",
+    "start": "npm run build && npm run start:dev",
     "start:dev": " npx ts-node-dev ./index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
