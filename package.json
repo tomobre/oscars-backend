@@ -58,8 +58,5 @@
     "@types/node": "^16.10.2",
     "ts-node-dev": "^2.0.0",
     "typeorm-uml": "^1.6.4"
-  },
-  "engines": {
-    "node": "14.16.1"
   }
 }
